@@ -1,5 +1,6 @@
 from flask import render_template, request
 from keep_alive import keep_alive, app
+import Calculator as calc
 
 
 @app.route("/")
@@ -14,19 +15,23 @@ def calculate():
     operation = request.form["operation"]
 
     if operation == "add":
-        result = float(number_one) + float(number_two)
+        #result = float(number_one) + float(number_two)
+        result = calc.add(number_one, number_two)
         return render_template("calculator.html", result=result)
 
     elif operation == "subtract":
-        result = float(number_one) - float(number_two)
+        #result = float(number_one) - float(number_two)
+        result = calc.subtract(number_one, number_two)
         return render_template("calculator.html", result=result)
 
     elif operation == "multiply":
-        result = float(number_one) * float(number_two)
+        #result = float(number_one) * float(number_two)
+        result = calc.multiply(number_one, number_two)
         return render_template("calculator.html", result=result)
 
     elif operation == "divide":
-        result = float(number_one) / float(number_two)
+        #result = float(number_one) / float(number_two)
+        result = calc.divide(number_one, number_two)
         return render_template("calculator.html", result=result)
 
     else:
