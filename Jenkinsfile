@@ -4,9 +4,6 @@ pipeline {
             label 'docker-agent-python'
             }
       }
-    triggers {
-        pollSCM '* * * * *'
-    }
     stages {
         stage('Build') {
             steps {
@@ -29,7 +26,7 @@ pipeline {
             steps {
                 echo 'Deliver....'
                 sh '''
-                echo "doing delivery stuff.."
+                sudo nohup python3 app.py > log.txt 2>&1 &
                 '''
             }
         }
