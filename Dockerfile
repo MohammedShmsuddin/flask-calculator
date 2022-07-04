@@ -1,15 +1,16 @@
 # Pull an official base image
-FROM python:3.10.5-slim-bullseye
+FROM python:3.10-slim-bullseye
 
 # Setting work directory
-WORKDIR /flask-app
+WORKDIR /flask-calculator
+
+COPY . /flask-calculator
+
 
 # Install dependencies
-COPY ./requirements.txt /flask-app/requirements.txt
 RUN pip install -r requirements.txt
 
-# Copy src files
-COPY . /flask-app
+EXPOSE 3000
 
 # Run Server
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["python3", "app.py"]
