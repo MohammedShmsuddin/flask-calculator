@@ -1,20 +1,36 @@
 pipeline {
-    agent { docker { image 'python:3.7.2' } }
+    agent { 
+        node {
+            label 'docker-agent-python'
+            }
+      }
+    triggers {
+        pollSCM '* * * * *'
+    }
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                // Run venv
-                sh 'python3 -m venv env'
-                sh 'source env/bin/activate'
-
-                // Run pip install
-                sh "pip3 install -r requirements.txt"
-
+                echo "Building.."
+                sh '''
+                pip install -r requirements.txt
+                '''
             }
         }
-        stage('test') {
+        stage('Test') {
             steps {
-                sh 'python3 -m unittest TestCalc.py'
+                echo "Testing.."
+                sh '''
+                python3 app.py
+                
+                '''
+            }
+        }
+        stage('Deliver') {
+            steps {
+                echo 'Deliver....'
+                sh '''
+                echo "doing delivery stuff.."
+                '''
             }
         }
     }
