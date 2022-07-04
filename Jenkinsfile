@@ -20,7 +20,7 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
-                python3 app.py
+                python3 -m unittest TestCalc.py
                 
                 '''
             }
