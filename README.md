@@ -33,7 +33,7 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-4. jenkin test 100
+4. just simple test 2
 
 ## License
 
