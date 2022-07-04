@@ -22,7 +22,7 @@ pipeline {
                 '''
             }
         }
-        stage('Build Docker') {
+        /*stage('Build Docker') {
             steps {
                 echo 'Building docker image from Dockerfile....'
                 sh '''
@@ -39,7 +39,7 @@ pipeline {
                 '''
 
             }
-        }
+        }*/
         stage('Deliver') {
             steps {
                 echo 'Deliver....'
