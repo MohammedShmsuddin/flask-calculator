@@ -22,22 +22,17 @@ pipeline {
                 '''
             }
         }
-        /*stage('Build Docker') {
+        /**stage('Docker Build') {
             steps {
                 echo 'Building docker image from Dockerfile....'
                 sh '''
                 docker build --user='mshmsudd' -t flask-app .
                 '''
 
-            }
-        }
-        stage('Run Docker Container') {
-            steps {
                 echo 'Running Docker container......'
                 sh '''
                 docker run --user='mshmsudd' -p 3000:3000 --name flask-app -d flask-app
                 '''
-
             }
         }*/
         stage('Deliver') {
