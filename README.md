@@ -33,7 +33,7 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-4. just simple test 2
+4. just simple test 100
 
 ## License
 
