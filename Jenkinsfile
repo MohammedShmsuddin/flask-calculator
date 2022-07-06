@@ -5,6 +5,18 @@ pipeline {
             }
       }
     stages {
+        stage('SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh "./run_sonarqube_script.sh"
+                }
+            }
+        }
+        stage("Quality gate") {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
         stage('Build') {
             steps {
                 echo "Building.."
