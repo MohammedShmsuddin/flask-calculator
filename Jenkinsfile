@@ -4,7 +4,7 @@ pipeline {
             label 'docker-agent-python'
             }
       }
-    stages {
+    /**stages {
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 waitForQualityGate abortPipeline: true
             }
-        }
+        }*/
         stage('Build') {
             steps {
                 echo "Building.."
