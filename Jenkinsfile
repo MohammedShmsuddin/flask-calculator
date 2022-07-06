@@ -8,7 +8,11 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh "./run_sonarqube_script.sh"
+                    sh "sonar-scanner \
+                        -Dsonar.projectKey=sonarqube-flask \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=http://localhost:9000 \
+                        -Dsonar.login=8f413365a32d78e21e769174c410a66097938ae0"
                 }
             }
         }
