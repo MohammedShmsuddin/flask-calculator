@@ -4,8 +4,8 @@ pipeline {
             label 'docker-agent-python'
             }
       }
-    /**stages {
-        stage('SonarQube analysis') {
+    stages {
+        /**stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh "sonar-scanner \
